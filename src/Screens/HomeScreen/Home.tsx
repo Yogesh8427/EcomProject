@@ -5,7 +5,7 @@ import { WrapperContainer } from '../../Components/AllComponents'
 const Home = () => {
     return (
         <WrapperContainer>
-            <Text>Home</Text>
+            <Text>Home </Text>
         </WrapperContainer>
     )
 }
