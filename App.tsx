@@ -12,6 +12,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import Routes from './src/Navigations/Routes';
+import { ThemeProvider } from './src/Theme/ThemeProvider';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -26,7 +27,9 @@ function App() {
 function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
   return (
-    <Routes />
+    <ThemeProvider>
+      <Routes />
+    </ThemeProvider>
   );
 }
 
