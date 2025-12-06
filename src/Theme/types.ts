@@ -5,6 +5,7 @@ export interface ThemeColors {
     border: string;
     primary: string;
     secondary: string;
+    secondaryText: string;
 }
 
 export interface AppTheme {

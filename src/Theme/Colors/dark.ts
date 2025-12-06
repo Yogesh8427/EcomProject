@@ -1,9 +1,12 @@
-const dark = {
-    background: "#000000",
+import { ThemeColors } from "../types";
+
+const dark : ThemeColors = {
+    background: "#191A1F",
     text: "#FFFFFF",
+    secondaryText: "#999999",
     card: "#1B1B1B",
     border: "#2A2A2A",
-    primary: "#5890FF",
+    primary: "#FFFFFF",
     secondary: "#FF968E",
 };
 
