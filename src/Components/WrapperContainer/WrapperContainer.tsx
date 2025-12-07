@@ -13,25 +13,14 @@ import {
 import Style from './style';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useThemeSwitcher } from '../../Hooks/useThemeSwitcher';
-
-
-const isColorDark = (hexColor: string) => {
-    // Remove #
-    const color = hexColor.replace('#', '');
-    const r = parseInt(color.slice(0, 2), 16);
-    const g = parseInt(color.slice(2, 4), 16);
-    const b = parseInt(color.slice(4, 6), 16);
-    // Standard luminance formula
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    return brightness < 150; // return true if dark
-};
-
+import { isColorDark } from '../../Functions/helperFunctions';
 
 const WrapperContainer: React.FC<WrapperContainerProps> = ({
     backgroundColor,
     children,
     useScroll = false,
     contentContainerStyle,
+    outerContainerStyle,
 }) => {
     const { theme } = useThemeSwitcher();
     const insets = useSafeAreaInsets();
@@ -43,11 +32,11 @@ const WrapperContainer: React.FC<WrapperContainerProps> = ({
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-            style={{
+            style={[{
                 flex: 1,
                 backgroundColor: backgroundColor || theme.colors.background,
-                paddingTop: insets.top
-            }}>
+                paddingTop: insets.top,
+            }, outerContainerStyle]}>
             <StatusBar
                 translucent={true}
                 backgroundColor={backgroundColor || theme.colors.background}
@@ -83,4 +72,5 @@ interface WrapperContainerProps {
     statusBarStyle?: 'light-content' | 'dark-content';
     statusBarBackgroundColor?: string;
     contentContainerStyle?: StyleProp<ViewStyle>;
+    outerContainerStyle?: StyleProp<ViewStyle>;
 }

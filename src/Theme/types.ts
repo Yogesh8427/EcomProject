@@ -6,6 +6,8 @@ export interface ThemeColors {
     primary: string;
     secondary: string;
     secondaryText: string;
+    loader: string;
+    buttonText: string;
 }
 
 export interface AppTheme {

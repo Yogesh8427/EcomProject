@@ -6,7 +6,7 @@ import MainStack from './Stacks/MainStack';
 const Routes = () => {
   return (
     <NavigationContainer>
-      {false ? <AuthStack /> :
+      {true ? <AuthStack /> :
         <MainStack />}
     </NavigationContainer>
   )
